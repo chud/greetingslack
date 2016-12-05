@@ -11,11 +11,11 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 ###VARIABLES THAT YOU NEED TO SET MANUALLY IF NOT ON HEROKU#####
 try:
-	MESSAGE = os.environ['WELCOME_MESSAGE']
-	TOKEN = os.environ['SLACK_TOKEN']
+    MESSAGE = os.environ['WELCOME_MESSAGE']
+    TOKEN = os.environ['SLACK_TOKEN']
 except:
-	MESSAGE = 'Manually set the Message if youre not running through heroku or have not set vars in ENV'
-	TOKEN = 'Manually set the API Token if youre not running through heroku or have not set vars in ENV'
+    MESSAGE = 'Manually set the Message if youre not running through heroku or have not set vars in ENV'
+    TOKEN = 'Manually set the API Token if youre not running through heroku or have not set vars in ENV'
 ###############################################################
 
 def parse_join(message):
@@ -24,13 +24,13 @@ def parse_join(message):
         x = requests.get("https://slack.com/api/im.open?token="+TOKEN+"&user="+m["user"]["id"])
         x = x.json()
         x = x["channel"]["id"]
-		data = {
-			"token": TOKEN,
-			"channel": x,
-			"text": MESSAGE,
-			"parse": "full",
-			"as_user": "true",
-		}
+        data = {
+            "token": TOKEN,
+            "channel": x,
+            "text": MESSAGE,
+            "parse": "full",
+            "as_user": "true",
+        }
         xx = requests.post("https://slack.com/api/chat.postMessage", data=data)
 
         #DEBUG
