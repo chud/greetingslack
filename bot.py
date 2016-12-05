@@ -11,11 +11,14 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 ###VARIABLES THAT YOU NEED TO SET MANUALLY IF NOT ON HEROKU#####
 try:
-    MESSAGE = os.environ['WELCOME_MESSAGE']
     TOKEN = os.environ['SLACK_TOKEN']
 except:
-    MESSAGE = 'Manually set the Message if youre not running through heroku or have not set vars in ENV'
     TOKEN = 'Manually set the API Token if youre not running through heroku or have not set vars in ENV'
+
+try:
+    MESSAGE = os.environ['WELCOME_MESSAGE']
+except:
+    MESSAGE = 'Manually set the Message if youre not running through heroku or have not set vars in ENV'
 ###############################################################
 
 def parse_join(message):
