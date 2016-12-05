@@ -1,0 +1,6 @@
+version: '2'
+services:
+  greetingslack:
+    build: .
+    image: greetingslack:1.0
+    env_file: greetingslack.env

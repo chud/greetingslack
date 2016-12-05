@@ -1,0 +1,4 @@
+greetingslack.env
+.dockerignore
+docker-compose.yml
+Dockerfile
