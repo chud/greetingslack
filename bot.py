@@ -18,7 +18,9 @@ except:
 try:
     MESSAGE = os.environ['WELCOME_MESSAGE']
 except:
-    MESSAGE = 'Manually set the Message if youre not running through heroku or have not set vars in ENV'
+     file_handle = open('message', 'r')
+     MESSAGE = file_handle.read()
+    #MESSAGE = 'Manually set the Message if youre not running through heroku or have not set vars in ENV'
 ###############################################################
 
 def parse_join(message):
