@@ -18,7 +18,7 @@ except:
 try:
     MESSAGE = os.environ['WELCOME_MESSAGE']
 except:
-     file_handle = open('message', 'r')
+     file_handle = open('/var/lib/greetingslack/message', 'r')
      MESSAGE = file_handle.read()
     #MESSAGE = 'Manually set the Message if youre not running through heroku or have not set vars in ENV'
 ###############################################################
